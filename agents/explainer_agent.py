@@ -6,6 +6,7 @@ safety action and cannot manufacture authoritative evidence.
 from __future__ import annotations
 
 import os
+import time
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -13,7 +14,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from state import SunState
 from agents.common import mark_complete
-
+from utils.logging_config import get_logger,log_event
 load_dotenv()
 
 
@@ -80,6 +81,7 @@ def _get_chain():
 
 
 def explainer_agent_node(state: SunState) -> SunState:
+    started = time.perf_counter()
     response = _get_chain().invoke({
         "user_query": state.get("user_query", ""),
         "city": state.get("city", "Unknown"),
@@ -111,6 +113,14 @@ def explainer_agent_node(state: SunState) -> SunState:
         "evidence_summary": " | ".join(state.get("evidence_summary", [])),
         "retrieval_backend": state.get("retrieval_backend", "unknown"),
     })
-
+    log_event(
+    get_logger("sunsafe.explainer"),
+    20,
+    "gemini_request_timing",
+    latency_ms=round(
+        (time.perf_counter() - started) * 1000,
+        2,
+    ),
+)
     state["explanation"] = str(response.content)
     return mark_complete(state, "explainer_agent")
