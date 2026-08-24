@@ -1,23 +1,16 @@
 """Embedding backends.
-
 Primary: sentence-transformers/all-MiniLM-L6-v2 (dense 384-d vectors).
-Fallback: deterministic dense projection of TF-IDF vectors for offline tests.
-The fallback is explicitly labeled and should not be used as the quality
-benchmark for the deployed system.
+Fallback: deterministic dense projection of TF-IDF vectors for offline/low-memory deployments.
 """
 from __future__ import annotations
-
 import hashlib
-
+import os
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-
 try:
     from sentence_transformers import SentenceTransformer
 except Exception:
     SentenceTransformer = None
-
-
 class DenseEmbedder:
     def __init__(
         self,
@@ -29,12 +22,12 @@ class DenseEmbedder:
         self.model = None
         self.vectorizer = None
         self.projection = None
-
+        backend = os.getenv("SUNSAFE_EMBEDDING_BACKEND", "auto").lower()
+        if backend == "fallback":
+            return
         if SentenceTransformer is not None:
             try:
                 self.model = SentenceTransformer(model_name)
-                # sentence-transformers renamed this API. Keep a fallback
-                # for older installed versions.
                 if hasattr(self.model, "get_embedding_dimension"):
                     self.dim = int(self.model.get_embedding_dimension())
                 else:
@@ -43,7 +36,6 @@ class DenseEmbedder:
                     )
             except Exception:
                 self.model = None
-
     @property
     def backend(self) -> str:
         return (
@@ -51,7 +43,6 @@ class DenseEmbedder:
             if self.model is not None
             else "dense-tfidf-projection-fallback"
         )
-
     def fit(self, texts: list[str]) -> np.ndarray:
         if self.model is not None:
             return np.asarray(
@@ -62,7 +53,6 @@ class DenseEmbedder:
                 ),
                 dtype=np.float32,
             )
-
         self.vectorizer = TfidfVectorizer(
             stop_words="english",
             ngram_range=(1, 2),
@@ -71,7 +61,6 @@ class DenseEmbedder:
         sparse = self.vectorizer.fit_transform(texts).toarray().astype(
             np.float32
         )
-
         seed = int(
             hashlib.sha256(self.model_name.encode()).hexdigest()[:8],
             16,
@@ -89,9 +78,7 @@ class DenseEmbedder:
             ).max(),
             1e-8,
         )
-
         return self._normalize(sparse @ self.projection)
-
     def encode_query(self, texts: list[str]) -> np.ndarray:
         if self.model is not None:
             return np.asarray(
@@ -102,17 +89,14 @@ class DenseEmbedder:
                 ),
                 dtype=np.float32,
             )
-
         if self.vectorizer is None or self.projection is None:
             raise RuntimeError(
                 "Fallback embedder must be fitted before querying"
             )
-
         sparse = self.vectorizer.transform(texts).toarray().astype(
             np.float32
         )
         return self._normalize(sparse @ self.projection)
-
     @staticmethod
     def _normalize(x: np.ndarray) -> np.ndarray:
         norms = np.linalg.norm(x, axis=1, keepdims=True)

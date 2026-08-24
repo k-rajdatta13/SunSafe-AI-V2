@@ -1,5 +1,5 @@
 {
-  "backend": "sentence-transformers+sqlite-vector-db",
+  "backend": "dense-tfidf-projection-fallback+sqlite-vector-db",
   "dimension": 384,
   "documents": 40
 }

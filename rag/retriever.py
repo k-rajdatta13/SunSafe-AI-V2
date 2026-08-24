@@ -55,18 +55,39 @@ class LocalVectorRetriever:
         self.lexical_matrix = self.lexical.fit_transform([self._embedding_text(d) for d in self.documents])
 
     def _ensure_index(self) -> None:
-        if self.store.count() == len(self.documents) and self.store.count() > 0:
+        metadata_path = INDEX_DIR / "metadata.json"
+        index_matches = False
+        if metadata_path.exists():
+            try:
+                metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+                index_matches = (
+                    metadata.get("backend") == self.backend
+                    and int(metadata.get("dimension", -1)) == int(self.embedder.dim)
+                    and int(metadata.get("documents", -1)) == len(self.documents)
+                    and self.store.count() == len(self.documents)
+                    and self.store.count() > 0
+                )
+            except (OSError, ValueError, TypeError, json.JSONDecodeError):
+                index_matches = False
+        if index_matches:
             return
         texts = [self._embedding_text(d) for d in self.documents]
         vectors = self.embedder.fit(texts)
         metadata = self.documents
         self.store.reset()
-        self.store.upsert([d["id"] for d in self.documents], vectors, metadata)
-        (INDEX_DIR / "metadata.json").write_text(json.dumps({
-            "backend": self.backend,
-            "dimension": int(vectors.shape[1]),
-            "documents": len(self.documents),
-        }, indent=2), encoding="utf-8")
+        self.store.upsert(
+            [d["id"] for d in self.documents],
+            vectors,
+            metadata,
+        )
+        metadata_path.write_text(
+            json.dumps({
+                "backend": self.backend,
+                "dimension": int(vectors.shape[1]),
+                "documents": len(self.documents),
+            }, indent=2),
+            encoding="utf-8",
+        )
 
     @staticmethod
     def _expand_query(query: str) -> str:
