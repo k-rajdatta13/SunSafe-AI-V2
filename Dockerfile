@@ -3,9 +3,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 WORKDIR /app
 COPY requirements.txt .
 # Install CPU-only PyTorch to avoid pulling CUDA/NVIDIA packages.
-RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu `
-    && pip install --no-cache-dir -r requirements.txt `
-    && useradd --create-home --uid 10001 appuser
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r requirements.txt && useradd --create-home --uid 10001 appuser
 COPY . .
 RUN chown -R appuser:appuser /app
 USER appuser
