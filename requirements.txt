@@ -12,4 +12,3 @@ scikit-learn>=1.4,<2
 langgraph>=0.2,<2
 langchain-core>=0.3,<2
 langchain-google-genai>=2,<4
-sentence-transformers>=3.0,<6

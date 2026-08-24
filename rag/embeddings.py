@@ -1,16 +1,12 @@
 """Embedding backends.
-Primary: sentence-transformers/all-MiniLM-L6-v2 (dense 384-d vectors).
-Fallback: deterministic dense projection of TF-IDF vectors for offline/low-memory deployments.
+Production/offline backend: deterministic dense projection of TF-IDF vectors.
+This avoids loading PyTorch/SentenceTransformers and is suitable for the
+low-memory deployment target.
 """
 from __future__ import annotations
 import hashlib
-import os
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-try:
-    from sentence_transformers import SentenceTransformer
-except Exception:
-    SentenceTransformer = None
 class DenseEmbedder:
     def __init__(
         self,
@@ -22,37 +18,10 @@ class DenseEmbedder:
         self.model = None
         self.vectorizer = None
         self.projection = None
-        backend = os.getenv("SUNSAFE_EMBEDDING_BACKEND", "auto").lower()
-        if backend == "fallback":
-            return
-        if SentenceTransformer is not None:
-            try:
-                self.model = SentenceTransformer(model_name)
-                if hasattr(self.model, "get_embedding_dimension"):
-                    self.dim = int(self.model.get_embedding_dimension())
-                else:
-                    self.dim = int(
-                        self.model.get_sentence_embedding_dimension()
-                    )
-            except Exception:
-                self.model = None
     @property
     def backend(self) -> str:
-        return (
-            "sentence-transformers"
-            if self.model is not None
-            else "dense-tfidf-projection-fallback"
-        )
+        return "dense-tfidf-projection-fallback"
     def fit(self, texts: list[str]) -> np.ndarray:
-        if self.model is not None:
-            return np.asarray(
-                self.model.encode(
-                    texts,
-                    normalize_embeddings=True,
-                    show_progress_bar=False,
-                ),
-                dtype=np.float32,
-            )
         self.vectorizer = TfidfVectorizer(
             stop_words="english",
             ngram_range=(1, 2),
@@ -80,15 +49,6 @@ class DenseEmbedder:
         )
         return self._normalize(sparse @ self.projection)
     def encode_query(self, texts: list[str]) -> np.ndarray:
-        if self.model is not None:
-            return np.asarray(
-                self.model.encode(
-                    texts,
-                    normalize_embeddings=True,
-                    show_progress_bar=False,
-                ),
-                dtype=np.float32,
-            )
         if self.vectorizer is None or self.projection is None:
             raise RuntimeError(
                 "Fallback embedder must be fitted before querying"
