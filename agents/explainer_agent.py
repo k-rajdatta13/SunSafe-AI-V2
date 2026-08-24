@@ -14,7 +14,8 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from state import SunState
 from agents.common import mark_complete
-from utils.logging_config import get_logger,log_event
+from utils.logging_config import get_logger, log_event
+
 load_dotenv()
 
 
@@ -81,7 +82,21 @@ def _get_chain():
 
 
 def explainer_agent_node(state: SunState) -> SunState:
+    # Unsupported-domain requests are handled deterministically.
+    # Do not call Gemini and do not expose environmental decision fields as if
+    # they were relevant to the unsupported question.
+    if state.get("intent") == "unsupported":
+        state["explanation"] = (
+            "SunSafe AI is designed for UV, heat, weather, and outdoor-safety "
+            "guidance. It does not analyze or predict stock-market movements "
+            "or other unrelated domains. Please ask a question about sun "
+            "exposure, UV, heat, weather, or outdoor safety."
+        )
+        state["verification_status"] = "NOT_REQUIRED"
+        return mark_complete(state, "explainer_agent")
+
     started = time.perf_counter()
+
     response = _get_chain().invoke({
         "user_query": state.get("user_query", ""),
         "city": state.get("city", "Unknown"),
@@ -113,14 +128,16 @@ def explainer_agent_node(state: SunState) -> SunState:
         "evidence_summary": " | ".join(state.get("evidence_summary", [])),
         "retrieval_backend": state.get("retrieval_backend", "unknown"),
     })
+
     log_event(
-    get_logger("sunsafe.explainer"),
-    20,
-    "gemini_request_timing",
-    latency_ms=round(
-        (time.perf_counter() - started) * 1000,
-        2,
-    ),
-)
+        get_logger("sunsafe.explainer"),
+        20,
+        "gemini_request_timing",
+        latency_ms=round(
+            (time.perf_counter() - started) * 1000,
+            2,
+        ),
+    )
+
     state["explanation"] = str(response.content)
     return mark_complete(state, "explainer_agent")

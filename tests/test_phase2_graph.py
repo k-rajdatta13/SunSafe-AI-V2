@@ -26,3 +26,41 @@ def test_verifier_catches_inconsistent_high_uv_state():
     result = verifier_agent_node(state)
     assert result["verification_status"] == "FAIL"
     assert result["verification_issues"]
+
+
+def test_orchestrator_rejects_unsupported_stock_market_request():
+    state = {
+        "city": "Kanpur",
+        "skin_type": 3,
+        "body_area": 25,
+        "age": 25,
+        "user_query": "Will the stock market rise tomorrow because of the weather?",
+    }
+
+    result = orchestrator_node(state)
+
+    assert result["intent"] == "unsupported"
+    assert result["plan"] == ["explainer_agent"]
+    assert next_agent(result) == "explainer_agent"
+
+
+def test_orchestrator_keeps_weather_request_in_scope():
+    state = {
+        "city": "Kanpur",
+        "skin_type": 3,
+        "body_area": 25,
+        "age": 25,
+        "user_query": "What is the weather in Kanpur today?",
+    }
+
+    result = orchestrator_node(state)
+
+    assert result["intent"] == "decision_support"
+    assert result["plan"] == [
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent",
+    ]
