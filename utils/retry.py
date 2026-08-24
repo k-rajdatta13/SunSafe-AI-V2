@@ -5,10 +5,14 @@ import time
 from collections.abc import Callable
 from typing import TypeVar
 T = TypeVar("T")
-
-def with_retry(fn: Callable[[], T], *, attempts: int = 3, base_delay: float = 0.4,
-               retry_exceptions: tuple[type[BaseException], ...] = (Exception,),
-               jitter: float = 0.1) -> T:
+def with_retry(
+    fn: Callable[[], T],
+    *,
+    attempts: int = 3,
+    base_delay: float = 0.4,
+    retry_exceptions: tuple[type[BaseException], ...] = (Exception,),
+    jitter: float = 0.1,
+) -> T:
     if attempts < 1:
         raise ValueError("attempts must be >= 1")
     last_error: BaseException | None = None
@@ -19,7 +23,9 @@ def with_retry(fn: Callable[[], T], *, attempts: int = 3, base_delay: float = 0.
             last_error = exc
             if attempt == attempts - 1:
                 raise
-            delay = base_delay * (2 ** attempt) + random.uniform(0, jitter)
+            # Jitter is for retry timing, not cryptographic randomness.
+            delay = base_delay * (2 ** attempt) + random.uniform(0, jitter)  # nosec B311
             time.sleep(delay)
-    assert last_error is not None
+    if last_error is None:
+        raise RuntimeError("Retry loop exited without a result or exception")
     raise last_error
