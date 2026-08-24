@@ -28,36 +28,116 @@ class FakeChain:
             f"Evidence: {values.get('evidence_summary','')}. Sources: {values.get('evidence_sources','')}."
         )
 
-def _weather_payload(uv=4.0,temperature=28.0):
-    return {"current":{"temperature_2m":temperature,"relative_humidity_2m":55,"cloud_cover":20,"wind_speed_10m":10,"weather_code":0,"uv_index":uv}}
+def _weather_payload(uv=4.0, temperature=28.0):
+    return {
+        "current": {
+            "temp_c": temperature,
+            "humidity": 55,
+            "cloud": 20,
+            "wind_kph": 10,
+            "condition": {
+                "code": 1000
+            },
+            "uv": uv,
+        }
+    }
 def _forecast_payload():
-    times=["2026-08-23T08:00","2026-08-23T09:00","2026-08-23T10:00","2026-08-23T11:00","2026-08-23T12:00"]
-    return {"hourly":{"time":times,"temperature_2m":[24,25,27,29,31],"uv_index":[2,3,4,6,8],"cloud_cover":[10,10,15,20,25]}}
+    times = [
+        "2026-08-23 08:00",
+        "2026-08-23 09:00",
+        "2026-08-23 10:00",
+        "2026-08-23 11:00",
+        "2026-08-23 12:00",
+    ]
+
+    hours = []
+
+    temperatures = [24, 25, 27, 29, 31]
+    uv_values = [2, 3, 4, 6, 8]
+    clouds = [10, 10, 15, 20, 25]
+
+    for time_value, temperature, uv, cloud in zip(
+        times,
+        temperatures,
+        uv_values,
+        clouds,
+    ):
+        hours.append(
+            {
+                "time": time_value,
+                "temp_c": temperature,
+                "uv": uv,
+                "cloud": cloud,
+            }
+        )
+
+    return {
+        "forecast": {
+            "forecastday": [
+                {
+                    "hour": hours
+                }
+            ]
+        }
+    }
 
 def _configure_common_patches():
+    import os
     import agents.explainer_agent as explainer_agent
-    explainer_agent.chain=FakeChain()
-    import tools.weather_api as weather_api
-    calls={"geocode":0,"current":0,"forecast":0}; failure={"type":None,"remaining":0}
-    def fake_get(url,params=None,timeout=None):
-        if "geocoding-api" in url:
-            calls["geocode"]+=1
-            return FakeResponse(200,{"results":[{"name":"Kanpur","country":"India","latitude":26.4499,"longitude":80.3319}]})
-        if "api.open-meteo.com" in url:
-            if "current" in (params or {}):
-                calls["current"]+=1
-                if failure["type"]=="timeout" and failure["remaining"]>0:
-                    failure["remaining"]-=1
-                    import requests; raise requests.Timeout("injected timeout")
-                if failure["type"]=="429" and failure["remaining"]>0:
-                    failure["remaining"]-=1; return FakeResponse(429,{})
-                return FakeResponse(200,_weather_payload())
-            calls["forecast"]+=1; return FakeResponse(200,_forecast_payload())
-        raise AssertionError(f"Unexpected URL: {url}")
-    weather_api.requests.get=fake_get
-    geocode_cache.clear(); weather_cache.clear(); forecast_cache.clear()
-    return calls,failure
 
+    explainer_agent.chain = FakeChain()
+
+    import tools.weather_api as weather_api
+
+    os.environ["WEATHERAPI_KEY"] = "test-key"
+
+    calls = {"geocode": 0, "current": 0, "forecast": 0}
+    failure = {"type": None, "remaining": 0}
+
+    def fake_get(url, params=None, timeout=None):
+        params = params or {}
+
+        if "search.json" in url:
+            calls["geocode"] += 1
+            return FakeResponse(
+                200,
+                [
+                    {
+                        "name": "Kanpur",
+                        "country": "India",
+                        "lat": 26.4499,
+                        "lon": 80.3319,
+                    }
+                ],
+            )
+
+        if "current.json" in url:
+            calls["current"] += 1
+
+            if failure["type"] == "timeout" and failure["remaining"] > 0:
+                failure["remaining"] -= 1
+                import requests
+                raise requests.Timeout("injected timeout")
+
+            if failure["type"] == "429" and failure["remaining"] > 0:
+                failure["remaining"] -= 1
+                return FakeResponse(429, {})
+
+            return FakeResponse(200, _weather_payload())
+
+        if "forecast.json" in url:
+            calls["forecast"] += 1
+            return FakeResponse(200, _forecast_payload())
+
+        raise AssertionError(f"Unexpected URL: {url}")
+
+    weather_api.requests.get = fake_get
+
+    geocode_cache.clear()
+    weather_cache.clear()
+    forecast_cache.clear()
+
+    return calls, failure
 def _reload_graph():
     import agents.weather_agent as wa
     import agents.knowledge_agent as ka

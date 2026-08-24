@@ -1,116 +1,176 @@
-"""Resilient Open-Meteo client with caching, retries and clean error boundaries."""
+"""Resilient WeatherAPI.com client with caching, retries and clean error boundaries."""
 from __future__ import annotations
-
+import os
 from typing import Any
 import requests
-from requests.exceptions import RequestException, HTTPError
-
+from requests.exceptions import RequestException
 from api.exceptions import CityNotFoundError, ExternalServiceError
 from utils.cache import geocode_cache, weather_cache, forecast_cache
 from utils.logging_config import get_logger, log_event
 from utils.retry import with_retry
-
 class RetryableHTTPError(RequestException):
     pass
-
 class NonRetryableHTTPError(RequestException):
     pass
-
-GEOCODING_URL = "https://geocoding-api.open-meteo.com/v1/search"
-FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
-CURRENT_WEATHER_FIELDS = "temperature_2m,relative_humidity_2m,cloud_cover,wind_speed_10m,weather_code,uv_index"
+WEATHERAPI_URL = "https://api.weatherapi.com/v1"
 logger = get_logger("sunsafe.weather")
-
-
-def _request_json(url: str, params: dict[str, Any]) -> dict[str, Any]:
+def _api_key() -> str:
+    key = os.getenv("WEATHERAPI_KEY", "").strip()
+    if not key:
+        raise ExternalServiceError("WEATHERAPI_KEY is not configured.")
+    return key
+def _request_json(endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
+    request_params = {
+        "key": _api_key(),
+        **params,
+    }
     def call() -> dict[str, Any]:
-        response = requests.get(url, params=params, timeout=8)
-        if response.status_code == 429 or response.status_code == 408 or response.status_code >= 500:
-            raise RetryableHTTPError(f"transient HTTP {response.status_code}")
+        response = requests.get(
+            f"{WEATHERAPI_URL}/{endpoint}",
+            params=request_params,
+            timeout=8,
+        )
+        if (
+            response.status_code == 429
+            or response.status_code == 408
+            or response.status_code >= 500
+        ):
+            raise RetryableHTTPError(
+                f"transient HTTP {response.status_code}"
+            )
         if response.status_code >= 400:
-            raise NonRetryableHTTPError(f"HTTP {response.status_code}")
+            raise NonRetryableHTTPError(
+                f"HTTP {response.status_code}"
+            )
         try:
-            return response.json()
+            data = response.json()
         except ValueError as exc:
-            raise RetryableHTTPError("invalid JSON from weather service") from exc
-
+            raise RetryableHTTPError(
+                "invalid JSON from weather service"
+            ) from exc
+        if isinstance(data, dict) and data.get("error"):
+            error = data["error"]
+            code = error.get("code", "unknown")
+            message = error.get("message", "WeatherAPI error")
+            raise NonRetryableHTTPError(
+                f"WeatherAPI error {code}: {message}"
+            )
+        return data
     try:
-        return with_retry(call, attempts=3, base_delay=0.35, retry_exceptions=(RetryableHTTPError, RequestException, ValueError))
-    except (NonRetryableHTTPError, RetryableHTTPError, RequestException, ValueError) as exc:
-        raise ExternalServiceError(f"Open-Meteo request failed: {exc}") from exc
-
-
+        return with_retry(
+            call,
+            attempts=3,
+            base_delay=0.35,
+            retry_exceptions=(
+                RetryableHTTPError,
+                RequestException,
+                ValueError,
+            ),
+        )
+    except (
+        NonRetryableHTTPError,
+        RetryableHTTPError,
+        RequestException,
+        ValueError,
+    ) as exc:
+        raise ExternalServiceError(
+            f"WeatherAPI request failed: {exc}"
+        ) from exc
 def get_coordinates(city: str) -> dict[str, Any]:
     key = city.strip().lower()
     cached = geocode_cache.get(key)
     if cached is not None:
         log_event(logger, 20, "geocode_cache_hit", city=city)
         return cached
-    data = _request_json(GEOCODING_URL, {"name": city, "count": 1, "format": "json"})
-    results = data.get("results") or []
+    data = _request_json(
+        "search.json",
+        {"q": city},
+    )
+    results = data or []
     if not results:
-        raise CityNotFoundError(f"City '{city}' not found.")
+        raise CityNotFoundError(
+            f"City '{city}' not found."
+        )
     location = results[0]
     result = {
         "name": location["name"],
         "country": location["country"],
-        "latitude": location["latitude"],
-        "longitude": location["longitude"],
+        "latitude": location["lat"],
+        "longitude": location["lon"],
     }
     geocode_cache.set(key, result)
     return result
-
-
-def get_weather(latitude: float, longitude: float) -> dict[str, Any]:
+def get_weather(
+    latitude: float,
+    longitude: float,
+) -> dict[str, Any]:
     key = f"{latitude:.4f}:{longitude:.4f}"
     cached = weather_cache.get(key)
     if cached is not None:
-        log_event(logger, 20, "weather_cache_hit", cache_key=key)
+        log_event(
+            logger,
+            20,
+            "weather_cache_hit",
+            cache_key=key,
+        )
         return cached
-    data = _request_json(FORECAST_URL, {
-        "latitude": latitude,
-        "longitude": longitude,
-        "current": CURRENT_WEATHER_FIELDS,
-        "timezone": "auto",
-    })
+    data = _request_json(
+        "current.json",
+        {"q": f"{latitude},{longitude}"},
+    )
     try:
         current = data["current"]
         result = {
-            "temperature": current["temperature_2m"],
-            "relative_humidity": current["relative_humidity_2m"],
-            "cloud_cover": current["cloud_cover"],
-            "wind_speed": current["wind_speed_10m"],
-            "weather_code": current["weather_code"],
-            "uv_index": current["uv_index"],
+            "temperature": current["temp_c"],
+            "relative_humidity": current["humidity"],
+            "cloud_cover": current["cloud"],
+            "wind_speed": current["wind_kph"],
+            "weather_code": current["condition"]["code"],
+            "uv_index": current["uv"],
         }
     except (KeyError, TypeError) as exc:
-        raise ExternalServiceError("Open-Meteo returned an unexpected weather payload") from exc
+        raise ExternalServiceError(
+            "WeatherAPI returned an unexpected weather payload"
+        ) from exc
     weather_cache.set(key, result)
     return result
-
-
-def get_hourly_forecast(latitude: float, longitude: float) -> list[dict[str, Any]]:
+def get_hourly_forecast(
+    latitude: float,
+    longitude: float,
+) -> list[dict[str, Any]]:
     key = f"{latitude:.4f}:{longitude:.4f}"
     cached = forecast_cache.get(key)
     if cached is not None:
-        log_event(logger, 20, "forecast_cache_hit", cache_key=key)
+        log_event(
+            logger,
+            20,
+            "forecast_cache_hit",
+            cache_key=key,
+        )
         return cached
-    data = _request_json(FORECAST_URL, {
-        "latitude": latitude,
-        "longitude": longitude,
-        "hourly": "temperature_2m,uv_index,cloud_cover",
-        "forecast_days": 1,
-        "timezone": "auto",
-    })
+    data = _request_json(
+        "forecast.json",
+        {
+            "q": f"{latitude},{longitude}",
+            "days": 1,
+        },
+    )
     try:
-        hourly = data["hourly"]
-        forecast = [
-            {"time": t, "temperature": temp, "uv_index": uv, "cloud_cover": cloud}
-            for t, temp, uv, cloud in zip(
-                hourly["time"], hourly["temperature_2m"], hourly["uv_index"], hourly["cloud_cover"]
-            )
-        ]
+        forecast_days = data["forecast"]["forecastday"]
+        forecast = []
+        for day in forecast_days:
+            for hour in day["hour"]:
+                forecast.append(
+                    {
+                        "time": hour["time"].replace(" ", "T"),
+                        "temperature": hour["temp_c"],
+                        "uv_index": hour["uv"],
+                        "cloud_cover": hour["cloud"],
+                    }
+                )
     except (KeyError, TypeError) as exc:
-        raise ExternalServiceError("Open-Meteo returned an unexpected forecast payload") from exc
+        raise ExternalServiceError(
+            "WeatherAPI returned an unexpected forecast payload"
+        ) from exc
     forecast_cache.set(key, forecast)
     return forecast
