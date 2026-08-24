@@ -19,7 +19,7 @@
       "evidence_count": 4,
       "evidence_status": "AVAILABLE",
       "verification_status": "PASS",
-      "latency_ms": 74.14,
+      "latency_ms": 41.27,
       "weather_http_calls": {
         "geocode": 1,
         "current": 1,
@@ -37,7 +37,7 @@
         "forecast": 1
       },
       "verification_status": "PASS",
-      "latency_ms": 1183.66
+      "latency_ms": 1155.46
     },
     {
       "case": "weather_429_retry",
@@ -50,7 +50,7 @@
         "forecast": 1
       },
       "verification_status": "PASS",
-      "latency_ms": 1178.1
+      "latency_ms": 1180.21
     },
     {
       "case": "missing_evidence_degraded_mode",
@@ -60,7 +60,7 @@
       "evidence_count": 0,
       "evidence_status": "UNAVAILABLE",
       "explanation_contains_authority_notice": true,
-      "latency_ms": 17.49
+      "latency_ms": 18.28
     },
     {
       "case": "verifier_failure_revision_loop",
@@ -80,7 +80,7 @@
         "verifier_agent",
         "explainer_agent"
       ],
-      "latency_ms": 23.51
+      "latency_ms": 79.93
     }
   ],
   "passed_cases": 5,
