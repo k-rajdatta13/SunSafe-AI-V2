@@ -1,0 +1,96 @@
+{
+  "phase": "5.2",
+  "mode": "LIVE_GRAPH_INTEGRATION_WITH_MOCKED_EXTERNALS",
+  "cases": [
+    {
+      "case": "normal_full_graph",
+      "passed": true,
+      "status_code": 200,
+      "trace_agents": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent"
+      ],
+      "expected_trace": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent"
+      ],
+      "evidence_count": 4,
+      "verification_status": "PASS",
+      "contract_score": 1.0,
+      "latency_ms": 34.19,
+      "weather_http_calls": {
+        "geocode": 1,
+        "current": 1,
+        "forecast": 1
+      }
+    },
+    {
+      "case": "weather_timeout_retry",
+      "passed": true,
+      "status_code": 200,
+      "weather_calls": {
+        "geocode": 1,
+        "current": 3,
+        "forecast": 1
+      },
+      "verification_status": "PASS",
+      "latency_ms": 1166.6
+    },
+    {
+      "case": "weather_429_retry",
+      "passed": true,
+      "status_code": 200,
+      "weather_calls": {
+        "geocode": 1,
+        "current": 3,
+        "forecast": 1
+      },
+      "verification_status": "PASS",
+      "latency_ms": 1149.83
+    },
+    {
+      "case": "missing_evidence_detection",
+      "passed": true,
+      "status_code": 200,
+      "evidence_count": 0,
+      "grounding_gap_detected": true,
+      "latency_ms": 17.33,
+      "interpretation": "PASS means the harness successfully reproduced and detected the current missing-evidence gap. It is NOT a production safety pass."
+    },
+    {
+      "case": "verifier_failure_revision_loop",
+      "passed": true,
+      "status_code": 200,
+      "verifier_executions": 2,
+      "verification_status": "FAIL",
+      "best_time": "No conservative outdoor window found",
+      "trace_agents": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent"
+      ],
+      "latency_ms": 19.53,
+      "interpretation": "PASS means the real graph executed the bounded two-attempt verification loop. The final FAIL is expected because the failure was deliberately injected."
+    }
+  ],
+  "passed_cases": 5,
+  "total_cases": 5,
+  "all_harness_cases_passed": true,
+  "important_note": "External weather HTTP and Gemini generation are mocked. The actual FastAPI endpoint, LangGraph graph, agent nodes, RAG retriever and verifier routing execute."
+}

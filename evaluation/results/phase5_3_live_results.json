@@ -1,0 +1,89 @@
+{
+  "phase": "5.3",
+  "mode": "LIVE_GRAPH_INTEGRATION_WITH_EVIDENCE_DEGRADED_MODE",
+  "cases": [
+    {
+      "case": "normal_full_graph",
+      "passed": true,
+      "status_code": 200,
+      "status": "success",
+      "trace_agents": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent"
+      ],
+      "evidence_count": 4,
+      "evidence_status": "AVAILABLE",
+      "verification_status": "PASS",
+      "latency_ms": 74.14,
+      "weather_http_calls": {
+        "geocode": 1,
+        "current": 1,
+        "forecast": 1
+      }
+    },
+    {
+      "case": "weather_timeout_retry",
+      "passed": true,
+      "status_code": 200,
+      "status": "success",
+      "weather_calls": {
+        "geocode": 1,
+        "current": 3,
+        "forecast": 1
+      },
+      "verification_status": "PASS",
+      "latency_ms": 1183.66
+    },
+    {
+      "case": "weather_429_retry",
+      "passed": true,
+      "status_code": 200,
+      "status": "success",
+      "weather_calls": {
+        "geocode": 1,
+        "current": 3,
+        "forecast": 1
+      },
+      "verification_status": "PASS",
+      "latency_ms": 1178.1
+    },
+    {
+      "case": "missing_evidence_degraded_mode",
+      "passed": true,
+      "status_code": 200,
+      "status": "degraded",
+      "evidence_count": 0,
+      "evidence_status": "UNAVAILABLE",
+      "explanation_contains_authority_notice": true,
+      "latency_ms": 17.49
+    },
+    {
+      "case": "verifier_failure_revision_loop",
+      "passed": true,
+      "status_code": 200,
+      "verifier_executions": 2,
+      "verification_status": "FAIL",
+      "best_time": "No conservative outdoor window found",
+      "trace_agents": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent",
+        "decision_agent",
+        "verifier_agent",
+        "explainer_agent"
+      ],
+      "latency_ms": 23.51
+    }
+  ],
+  "passed_cases": 5,
+  "total_cases": 5,
+  "all_harness_cases_passed": true
+}

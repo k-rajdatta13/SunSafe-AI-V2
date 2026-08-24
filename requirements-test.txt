@@ -1,0 +1,8 @@
+# SunSafe AI V2 — test/evaluation dependencies
+# Install runtime dependencies first:
+-r requirements.txt
+
+# Starlette 1.6 TestClient now prefers httpx2 over legacy httpx.
+# Keep httpx installed because LangChain/LangGraph still use it.
+httpx2>=2.10,<3
+pytest>=9,<10

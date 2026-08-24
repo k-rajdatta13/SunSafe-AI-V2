@@ -1,0 +1,46 @@
+[
+  {
+    "source_id": "who_uv_fact_sheet",
+    "publisher": "WHO",
+    "title": "Ultraviolet radiation",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/ultraviolet-radiation",
+    "topic": "uv_health"
+  },
+  {
+    "source_id": "who_uv_index",
+    "publisher": "WHO",
+    "title": "Radiation: The ultraviolet (UV) index",
+    "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index",
+    "topic": "uv_index"
+  },
+  {
+    "source_id": "who_skin_cancer",
+    "publisher": "WHO",
+    "title": "Radiation: Protecting against skin cancer",
+    "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-protecting-against-skin-cancer",
+    "topic": "sun_protection"
+  },
+  {
+    "source_id": "cdc_sun_safety",
+    "publisher": "CDC",
+    "title": "Sun Safety Facts",
+    "url": "https://www.cdc.gov/skin-cancer/sun-safety/index.html",
+    "topic": "sun_safety"
+  },
+  {
+    "source_id": "cdc_uv_radiation",
+    "publisher": "CDC",
+    "title": "Ultraviolet Radiation",
+    "url": "https://www.cdc.gov/radiation-health/features/uv-radiation.html",
+    "topic": "uv_health"
+  },
+  {
+    "source_id": "cdc_heat",
+    "publisher": "CDC",
+    "title": "Extreme heat: tips for preventing heat-related illness",
+    "url": "https://stacks.cdc.gov/view/cdc/21634",
+    "fetch_url": "https://stacks.cdc.gov/view/cdc/21634/cdc_21634_DS1.pdf",
+    "topic": "heat_safety",
+    "format": "pdf"
+  }
+]

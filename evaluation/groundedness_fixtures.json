@@ -1,0 +1,177 @@
+{
+  "cases": [
+    {
+      "id": "supported_basic",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_001",
+          "claim": "UV Index 8 or higher requires extra caution and protective measures.",
+          "source": "WHO",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution and protective measures.",
+          "cited_chunk_ids": [
+            "who_uv_001"
+          ]
+        }
+      ],
+      "expected": "SUPPORTED"
+    },
+    {
+      "id": "unsupported_claim",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_001",
+          "claim": "UV Index 8 or higher requires extra caution.",
+          "source": "WHO",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher means outdoor activity is prohibited.",
+          "cited_chunk_ids": [
+            "who_uv_001"
+          ]
+        }
+      ],
+      "expected": "UNSUPPORTED"
+    },
+    {
+      "id": "wrong_citation",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_001",
+          "claim": "UV Index 8 or higher requires extra caution.",
+          "source": "WHO",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-%28uv%29-index"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution.",
+          "cited_chunk_ids": [
+            "missing_chunk"
+          ]
+        }
+      ],
+      "expected": "UNVERIFIABLE"
+    },
+    {
+      "id": "non_authoritative",
+      "evidence": [
+        {
+          "chunk_id": "blog_1",
+          "claim": "UV Index 8 or higher requires extra caution.",
+          "source": "Example Blog",
+          "url": "https://example.com/uv"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution.",
+          "cited_chunk_ids": [
+            "blog_1"
+          ]
+        }
+      ],
+      "expected": "UNVERIFIABLE"
+    },
+    {
+      "id": "numeric_mismatch",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_002",
+          "claim": "UV Index 7 or higher requires extra caution.",
+          "source": "WHO",
+          "url": "https://www.who.int/uv"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution.",
+          "cited_chunk_ids": [
+            "who_uv_002"
+          ]
+        }
+      ],
+      "expected": "UNSUPPORTED"
+    },
+    {
+      "id": "missing_citation",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_001",
+          "claim": "UV Index 8 or higher requires extra caution.",
+          "source": "WHO",
+          "url": "https://www.who.int/uv"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution.",
+          "cited_chunk_ids": []
+        }
+      ],
+      "expected": "UNSUPPORTED"
+    },
+    {
+      "id": "multi_evidence",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_003",
+          "claim": "UV Index 8 or higher requires extra caution.",
+          "source": "WHO",
+          "url": "https://www.who.int/uv"
+        },
+        {
+          "chunk_id": "cdc_uv_001",
+          "claim": "Use protective clothing and sunscreen when UV exposure is high.",
+          "source": "CDC",
+          "url": "https://www.cdc.gov/skin-cancer/about/index.html"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "UV Index 8 or higher requires extra caution and protective clothing.",
+          "cited_chunk_ids": [
+            "who_uv_003",
+            "cdc_uv_001"
+          ]
+        }
+      ],
+      "expected": "SUPPORTED"
+    },
+    {
+      "id": "negation_mismatch",
+      "evidence": [
+        {
+          "chunk_id": "who_uv_004",
+          "claim": "People should avoid prolonged direct sun exposure at very high UV levels.",
+          "source": "WHO",
+          "url": "https://www.who.int/uv"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "c1",
+          "text": "People should not avoid prolonged direct sun exposure at very high UV levels.",
+          "cited_chunk_ids": [
+            "who_uv_004"
+          ]
+        }
+      ],
+      "expected": "UNSUPPORTED"
+    }
+  ]
+}

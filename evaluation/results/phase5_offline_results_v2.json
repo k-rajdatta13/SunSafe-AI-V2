@@ -1,0 +1,170 @@
+{
+  "phase": 5,
+  "mode": "offline_evaluation_v2",
+  "deterministic_policy_regression": {
+    "scenarios": 200,
+    "passed": 200,
+    "consistency": 1.0,
+    "interpretation": "Regression consistency only; expected outcomes in the current dataset originate from the production safety function."
+  },
+  "failure_cases": {
+    "total": 12,
+    "passed": 12,
+    "pass_rate": 1.0,
+    "results": [
+      {
+        "id": "F01",
+        "case": "negative_uv",
+        "test_type": "deterministic_policy",
+        "passed": true,
+        "expected": "reject_invalid_uv",
+        "detail": "Negative UV rejected by safety policy."
+      },
+      {
+        "id": "F02",
+        "case": "extreme_uv",
+        "test_type": "deterministic_policy",
+        "passed": true,
+        "expected": "hard_stop",
+        "detail": "hard_stop=True"
+      },
+      {
+        "id": "F03",
+        "case": "extreme_heat",
+        "test_type": "deterministic_policy",
+        "passed": true,
+        "expected": "hard_stop",
+        "detail": "hard_stop=True"
+      },
+      {
+        "id": "F04",
+        "case": "extreme_uv_and_heat",
+        "test_type": "deterministic_policy",
+        "passed": true,
+        "expected": "hard_stop",
+        "detail": "hard_stop=True"
+      },
+      {
+        "id": "F05",
+        "case": "border_uv_2",
+        "test_type": "boundary_regression",
+        "passed": true,
+        "expected": "low_uv_no_protection_requirement",
+        "detail": ""
+      },
+      {
+        "id": "F06",
+        "case": "border_uv_3",
+        "test_type": "boundary_regression",
+        "passed": true,
+        "expected": "protection_required",
+        "detail": ""
+      },
+      {
+        "id": "F07",
+        "case": "border_heat_35",
+        "test_type": "boundary_regression",
+        "passed": true,
+        "expected": "heat_caution",
+        "detail": ""
+      },
+      {
+        "id": "F08",
+        "case": "invalid_city",
+        "test_type": "schema_validation",
+        "passed": true,
+        "expected": "request_validation_error",
+        "detail": "Schema rejected empty city."
+      },
+      {
+        "id": "F09",
+        "case": "api_timeout",
+        "test_type": "retry_utility_only",
+        "passed": true,
+        "expected": "retry_then_safe_error",
+        "detail": "This tests retry utility semantics, not the full weather-agent recovery path."
+      },
+      {
+        "id": "F10",
+        "case": "api_429",
+        "test_type": "retry_utility_only",
+        "passed": true,
+        "expected": "retry_then_safe_error",
+        "detail": "This tests retry utility semantics, not the full weather-agent recovery path."
+      },
+      {
+        "id": "F11",
+        "case": "missing_evidence",
+        "test_type": "evidence_contract",
+        "passed": true,
+        "expected": "no_unsupported_claims",
+        "detail": "No evidence correctly produces zero citation/authority completeness."
+      },
+      {
+        "id": "F12",
+        "case": "verification_fail",
+        "test_type": "verification_failure_contract",
+        "passed": true,
+        "expected": "bounded_revision_or_degraded",
+        "detail": "Checks bounded/degraded verifier-failure behavior, not merely agent presence."
+      }
+    ]
+  },
+  "agent_evaluation": {
+    "status": "OFFLINE_CONTRACT_FIXTURE_ONLY",
+    "fixture_score": 1.0,
+    "fixture_details": {
+      "required_agents_present": true,
+      "required_agent_order": true,
+      "verifier_pass": true,
+      "safety_invariant": true,
+      "citation_contract": true,
+      "verification_failure_bounded": true,
+      "score": 1.0,
+      "required_order": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent"
+      ],
+      "seen_agents": [
+        "orchestrator",
+        "weather_agent",
+        "safety_agent",
+        "knowledge_agent",
+        "decision_agent",
+        "verifier_agent"
+      ]
+    },
+    "live_langgraph_evaluation": "NOT_RUN"
+  },
+  "groundedness": {
+    "status": "DETERMINISTIC_CONTRACT_CHECKS_ONLY",
+    "smoke": {
+      "empty_evidence": {
+        "evidence_count": 0,
+        "citation_completeness": 0.0,
+        "authoritative_source_rate": 0.0,
+        "source_authority": 0.0,
+        "groundedness_score": 0.0
+      },
+      "empty_explanation": {
+        "has_explanation": false,
+        "evidence_count": 0,
+        "known_source_urls_cited": 0,
+        "citation_completeness": 0.0,
+        "semantic_entailment": "NOT_EVALUATED"
+      }
+    },
+    "semantic_entailment": "NOT_EVALUATED"
+  },
+  "harness_latency_ms": 353.85,
+  "notes": [
+    "Do not report fixture_score as a live agent score.",
+    "Do not report policy regression consistency as clinical accuracy.",
+    "Retry cases currently exercise the retry utility only; full weather-agent recovery requires integration tests with a mocked weather provider.",
+    "Full groundedness requires executing retrieval + LLM generation + verifier and scoring claims against retrieved evidence."
+  ]
+}

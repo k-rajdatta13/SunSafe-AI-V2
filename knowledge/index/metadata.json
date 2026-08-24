@@ -1,0 +1,5 @@
+{
+  "backend": "sentence-transformers+sqlite-vector-db",
+  "dimension": 384,
+  "documents": 40
+}

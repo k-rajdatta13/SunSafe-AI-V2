@@ -1,0 +1,3802 @@
+[
+  {
+    "scenario_id": "S001",
+    "city": "Bengaluru",
+    "skin_type": 6,
+    "body_area": 18,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 30.6,
+      "uv_index": 1.4
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S002",
+    "city": "Hyderabad",
+    "skin_type": 4,
+    "body_area": 80,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 31.7,
+      "uv_index": 9.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S003",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 62,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 20.0,
+      "uv_index": 0.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S004",
+    "city": "Jaipur",
+    "skin_type": 3,
+    "body_area": 50,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 23.3,
+      "uv_index": 8.2
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S005",
+    "city": "Hyderabad",
+    "skin_type": 3,
+    "body_area": 41,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 20.2,
+      "uv_index": 8.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S006",
+    "city": "Kolkata",
+    "skin_type": 3,
+    "body_area": 8,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 35.6,
+      "uv_index": 10.5
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S007",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 68,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 20.3,
+      "uv_index": 5.5
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S008",
+    "city": "Chennai",
+    "skin_type": 4,
+    "body_area": 55,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 36.8,
+      "uv_index": 6.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S009",
+    "city": "Kanpur",
+    "skin_type": 5,
+    "body_area": 71,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 32.1,
+      "uv_index": 10.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S010",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 18,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.5,
+      "uv_index": 9.2
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S011",
+    "city": "Hyderabad",
+    "skin_type": 1,
+    "body_area": 63,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 30.1,
+      "uv_index": 5.6
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S012",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 69,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 34.7,
+      "uv_index": 6.7
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S013",
+    "city": "Mumbai",
+    "skin_type": 1,
+    "body_area": 9,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 25.4,
+      "uv_index": 5.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S014",
+    "city": "Hyderabad",
+    "skin_type": 2,
+    "body_area": 38,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 41.2,
+      "uv_index": 9.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S015",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 9,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 38.7,
+      "uv_index": 6.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S016",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 70,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.3,
+      "uv_index": 5.5
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S017",
+    "city": "New Delhi",
+    "skin_type": 6,
+    "body_area": 66,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 22.6,
+      "uv_index": 11.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S018",
+    "city": "Mumbai",
+    "skin_type": 6,
+    "body_area": 57,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 27.3,
+      "uv_index": 10.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S019",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 74,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 20.3,
+      "uv_index": 11.0
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S020",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 50,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 33.5,
+      "uv_index": 3.0
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S021",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 22,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 32.6,
+      "uv_index": 3.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S022",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 69,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 21.3,
+      "uv_index": 5.7
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S023",
+    "city": "Chennai",
+    "skin_type": 5,
+    "body_area": 44,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 22.0,
+      "uv_index": 5.0
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S024",
+    "city": "New Delhi",
+    "skin_type": 4,
+    "body_area": 6,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 21.7,
+      "uv_index": 4.7
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S025",
+    "city": "Kanpur",
+    "skin_type": 6,
+    "body_area": 50,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 19.3,
+      "uv_index": 10.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S026",
+    "city": "New Delhi",
+    "skin_type": 4,
+    "body_area": 46,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 26.2,
+      "uv_index": 6.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S027",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 80,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 32.3,
+      "uv_index": 11.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S028",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 13,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 26.4,
+      "uv_index": 5.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S029",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 74,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 34.2,
+      "uv_index": 0.4
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S030",
+    "city": "Mumbai",
+    "skin_type": 6,
+    "body_area": 7,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 34.0,
+      "uv_index": 10.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S031",
+    "city": "Jaipur",
+    "skin_type": 2,
+    "body_area": 28,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 30.9,
+      "uv_index": 9.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S032",
+    "city": "Mumbai",
+    "skin_type": 4,
+    "body_area": 44,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 28.4,
+      "uv_index": 5.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S033",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 64,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 29.6,
+      "uv_index": 2.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S034",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 40,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 29.1,
+      "uv_index": 6.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S035",
+    "city": "Jaipur",
+    "skin_type": 6,
+    "body_area": 47,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 41.8,
+      "uv_index": 2.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S036",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 76,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.8,
+      "uv_index": 11.5
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S037",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 32,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 35.9,
+      "uv_index": 1.3
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S038",
+    "city": "New Delhi",
+    "skin_type": 1,
+    "body_area": 38,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 34.8,
+      "uv_index": 6.8
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S039",
+    "city": "New Delhi",
+    "skin_type": 6,
+    "body_area": 28,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 35.1,
+      "uv_index": 2.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S040",
+    "city": "Pune",
+    "skin_type": 3,
+    "body_area": 25,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 38.9,
+      "uv_index": 3.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S041",
+    "city": "Kanpur",
+    "skin_type": 4,
+    "body_area": 6,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 28.3,
+      "uv_index": 0.8
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S042",
+    "city": "Lucknow",
+    "skin_type": 6,
+    "body_area": 76,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 25.7,
+      "uv_index": 2.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S043",
+    "city": "Jaipur",
+    "skin_type": 6,
+    "body_area": 9,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 29.4,
+      "uv_index": 3.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S044",
+    "city": "Kolkata",
+    "skin_type": 6,
+    "body_area": 20,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 32.9,
+      "uv_index": 7.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S045",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 60,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 41.7,
+      "uv_index": 4.7
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S046",
+    "city": "Kolkata",
+    "skin_type": 3,
+    "body_area": 58,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 25.2,
+      "uv_index": 8.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S047",
+    "city": "Mumbai",
+    "skin_type": 1,
+    "body_area": 19,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 26.6,
+      "uv_index": 6.5
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S048",
+    "city": "Kanpur",
+    "skin_type": 5,
+    "body_area": 43,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 21.1,
+      "uv_index": 1.4
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S049",
+    "city": "Jaipur",
+    "skin_type": 4,
+    "body_area": 35,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.9,
+      "uv_index": 6.9
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S050",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 74,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 22.6,
+      "uv_index": 9.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S051",
+    "city": "Pune",
+    "skin_type": 1,
+    "body_area": 7,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 37.7,
+      "uv_index": 10.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S052",
+    "city": "New Delhi",
+    "skin_type": 6,
+    "body_area": 80,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 42.0,
+      "uv_index": 5.0
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S053",
+    "city": "Chennai",
+    "skin_type": 3,
+    "body_area": 48,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 34.3,
+      "uv_index": 6.6
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S054",
+    "city": "Kanpur",
+    "skin_type": 2,
+    "body_area": 65,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 39.0,
+      "uv_index": 0.7
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S055",
+    "city": "Bengaluru",
+    "skin_type": 4,
+    "body_area": 51,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 39.6,
+      "uv_index": 8.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S056",
+    "city": "Chennai",
+    "skin_type": 4,
+    "body_area": 63,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 23.0,
+      "uv_index": 4.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S057",
+    "city": "Jaipur",
+    "skin_type": 2,
+    "body_area": 25,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 34.8,
+      "uv_index": 10.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S058",
+    "city": "Kanpur",
+    "skin_type": 5,
+    "body_area": 57,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 18.1,
+      "uv_index": 5.8
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S059",
+    "city": "New Delhi",
+    "skin_type": 3,
+    "body_area": 22,
+    "age": 70,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 27.3,
+      "uv_index": 1.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S060",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 44,
+    "age": 70,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 39.2,
+      "uv_index": 6.4
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S061",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 25,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 27.5,
+      "uv_index": 11.5
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S062",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 38,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 36.3,
+      "uv_index": 1.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S063",
+    "city": "Pune",
+    "skin_type": 2,
+    "body_area": 42,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 34.6,
+      "uv_index": 8.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S064",
+    "city": "Lucknow",
+    "skin_type": 6,
+    "body_area": 6,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 42.3,
+      "uv_index": 4.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S065",
+    "city": "Kanpur",
+    "skin_type": 2,
+    "body_area": 71,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.9,
+      "uv_index": 11.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S066",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 70,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 21.6,
+      "uv_index": 3.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S067",
+    "city": "Mumbai",
+    "skin_type": 2,
+    "body_area": 36,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 25.6,
+      "uv_index": 0.8
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S068",
+    "city": "Pune",
+    "skin_type": 1,
+    "body_area": 53,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 30.1,
+      "uv_index": 11.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S069",
+    "city": "Chennai",
+    "skin_type": 1,
+    "body_area": 76,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.7,
+      "uv_index": 7.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S070",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 49,
+    "age": 40,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 35.1,
+      "uv_index": 9.9
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S071",
+    "city": "Bengaluru",
+    "skin_type": 3,
+    "body_area": 38,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 20.2,
+      "uv_index": 9.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S072",
+    "city": "Jaipur",
+    "skin_type": 3,
+    "body_area": 68,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 30.7,
+      "uv_index": 3.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S073",
+    "city": "Kolkata",
+    "skin_type": 6,
+    "body_area": 49,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.2,
+      "uv_index": 2.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S074",
+    "city": "Lucknow",
+    "skin_type": 2,
+    "body_area": 61,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 32.7,
+      "uv_index": 10.0
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S075",
+    "city": "Hyderabad",
+    "skin_type": 3,
+    "body_area": 39,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 26.2,
+      "uv_index": 5.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S076",
+    "city": "Chennai",
+    "skin_type": 3,
+    "body_area": 23,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 33.7,
+      "uv_index": 1.7
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S077",
+    "city": "Kanpur",
+    "skin_type": 4,
+    "body_area": 56,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 32.4,
+      "uv_index": 3.2
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S078",
+    "city": "Chennai",
+    "skin_type": 4,
+    "body_area": 74,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.4,
+      "uv_index": 8.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S079",
+    "city": "Kanpur",
+    "skin_type": 4,
+    "body_area": 27,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 34.2,
+      "uv_index": 5.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S080",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 58,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 24.3,
+      "uv_index": 6.7
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S081",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 20,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 18.9,
+      "uv_index": 4.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S082",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 40,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 23.2,
+      "uv_index": 0.2
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S083",
+    "city": "Mumbai",
+    "skin_type": 1,
+    "body_area": 17,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 35.3,
+      "uv_index": 0.9
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S084",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 26,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 41.6,
+      "uv_index": 11.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S085",
+    "city": "Mumbai",
+    "skin_type": 5,
+    "body_area": 76,
+    "age": 70,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 35.8,
+      "uv_index": 6.8
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S086",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 75,
+    "age": 8,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 41.5,
+      "uv_index": 0.3
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S087",
+    "city": "Kolkata",
+    "skin_type": 6,
+    "body_area": 48,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 40.8,
+      "uv_index": 11.9
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S088",
+    "city": "Kanpur",
+    "skin_type": 3,
+    "body_area": 37,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 30.0,
+      "uv_index": 3.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S089",
+    "city": "Bengaluru",
+    "skin_type": 3,
+    "body_area": 64,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 30.0,
+      "uv_index": 1.6
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S090",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 32,
+    "age": 40,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 39.1,
+      "uv_index": 3.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S091",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 70,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 39.6,
+      "uv_index": 9.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S092",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 46,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 33.4,
+      "uv_index": 11.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S093",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 27,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 27.0,
+      "uv_index": 7.9
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S094",
+    "city": "Bengaluru",
+    "skin_type": 1,
+    "body_area": 64,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 41.1,
+      "uv_index": 7.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S095",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 32,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 39.4,
+      "uv_index": 5.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S096",
+    "city": "Chennai",
+    "skin_type": 3,
+    "body_area": 55,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 35.0,
+      "uv_index": 1.6
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S097",
+    "city": "Mumbai",
+    "skin_type": 6,
+    "body_area": 23,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 31.8,
+      "uv_index": 1.8
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S098",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 27,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 39.6,
+      "uv_index": 9.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S099",
+    "city": "Mumbai",
+    "skin_type": 4,
+    "body_area": 26,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 35.3,
+      "uv_index": 11.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S100",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 67,
+    "age": 40,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 35.0,
+      "uv_index": 9.0
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S101",
+    "city": "Jaipur",
+    "skin_type": 1,
+    "body_area": 64,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 30.9,
+      "uv_index": 3.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S102",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 65,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 21.6,
+      "uv_index": 10.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S103",
+    "city": "Kolkata",
+    "skin_type": 6,
+    "body_area": 37,
+    "age": 70,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 32.7,
+      "uv_index": 1.1
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S104",
+    "city": "Bengaluru",
+    "skin_type": 4,
+    "body_area": 60,
+    "age": 8,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 22.8,
+      "uv_index": 2.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S105",
+    "city": "Mumbai",
+    "skin_type": 2,
+    "body_area": 52,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 34.5,
+      "uv_index": 2.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S106",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 31,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 29.5,
+      "uv_index": 8.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S107",
+    "city": "Bengaluru",
+    "skin_type": 1,
+    "body_area": 32,
+    "age": 40,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 32.0,
+      "uv_index": 11.2
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S108",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 25,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 26.8,
+      "uv_index": 9.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S109",
+    "city": "Mumbai",
+    "skin_type": 1,
+    "body_area": 75,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 28.8,
+      "uv_index": 2.4
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S110",
+    "city": "Hyderabad",
+    "skin_type": 4,
+    "body_area": 71,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 27.1,
+      "uv_index": 3.4
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S111",
+    "city": "Chennai",
+    "skin_type": 1,
+    "body_area": 23,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 30.2,
+      "uv_index": 10.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S112",
+    "city": "Kanpur",
+    "skin_type": 6,
+    "body_area": 80,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 29.4,
+      "uv_index": 11.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S113",
+    "city": "Kolkata",
+    "skin_type": 4,
+    "body_area": 64,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 42.2,
+      "uv_index": 9.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S114",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 10,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 25.4,
+      "uv_index": 9.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S115",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 63,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 27.7,
+      "uv_index": 6.8
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S116",
+    "city": "New Delhi",
+    "skin_type": 2,
+    "body_area": 8,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 21.8,
+      "uv_index": 6.5
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S117",
+    "city": "New Delhi",
+    "skin_type": 1,
+    "body_area": 10,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 31.4,
+      "uv_index": 1.1
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S118",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 24,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 39.4,
+      "uv_index": 8.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S119",
+    "city": "Jaipur",
+    "skin_type": 6,
+    "body_area": 36,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 35.9,
+      "uv_index": 2.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S120",
+    "city": "Bengaluru",
+    "skin_type": 1,
+    "body_area": 67,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 39.2,
+      "uv_index": 6.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S121",
+    "city": "Jaipur",
+    "skin_type": 4,
+    "body_area": 80,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 37.2,
+      "uv_index": 5.3
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S122",
+    "city": "Chennai",
+    "skin_type": 4,
+    "body_area": 9,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 30.5,
+      "uv_index": 6.4
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S123",
+    "city": "Jaipur",
+    "skin_type": 3,
+    "body_area": 39,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 25.4,
+      "uv_index": 9.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S124",
+    "city": "Lucknow",
+    "skin_type": 5,
+    "body_area": 20,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 39.7,
+      "uv_index": 4.2
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S125",
+    "city": "Jaipur",
+    "skin_type": 2,
+    "body_area": 63,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 32.7,
+      "uv_index": 9.7
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S126",
+    "city": "Bengaluru",
+    "skin_type": 4,
+    "body_area": 5,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 38.1,
+      "uv_index": 9.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S127",
+    "city": "Kolkata",
+    "skin_type": 5,
+    "body_area": 39,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 36.8,
+      "uv_index": 0.6
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S128",
+    "city": "New Delhi",
+    "skin_type": 2,
+    "body_area": 76,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 41.4,
+      "uv_index": 3.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S129",
+    "city": "Kanpur",
+    "skin_type": 4,
+    "body_area": 70,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 18.9,
+      "uv_index": 6.6
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S130",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 16,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 42.3,
+      "uv_index": 7.8
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S131",
+    "city": "Hyderabad",
+    "skin_type": 6,
+    "body_area": 10,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 18.2,
+      "uv_index": 3.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S132",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 75,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 35.5,
+      "uv_index": 0.9
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S133",
+    "city": "Jaipur",
+    "skin_type": 2,
+    "body_area": 73,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 19.3,
+      "uv_index": 5.9
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S134",
+    "city": "New Delhi",
+    "skin_type": 4,
+    "body_area": 76,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 18.8,
+      "uv_index": 1.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S135",
+    "city": "Bengaluru",
+    "skin_type": 2,
+    "body_area": 76,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 22.5,
+      "uv_index": 8.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S136",
+    "city": "New Delhi",
+    "skin_type": 2,
+    "body_area": 64,
+    "age": 70,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 42.6,
+      "uv_index": 4.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S137",
+    "city": "Bengaluru",
+    "skin_type": 5,
+    "body_area": 71,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 36.7,
+      "uv_index": 4.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S138",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 68,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 21.7,
+      "uv_index": 10.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S139",
+    "city": "Jaipur",
+    "skin_type": 6,
+    "body_area": 68,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 38.4,
+      "uv_index": 1.7
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S140",
+    "city": "Kanpur",
+    "skin_type": 6,
+    "body_area": 80,
+    "age": 70,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 26.9,
+      "uv_index": 6.1
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S141",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 78,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 27.4,
+      "uv_index": 2.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S142",
+    "city": "Hyderabad",
+    "skin_type": 3,
+    "body_area": 27,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 31.3,
+      "uv_index": 3.7
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S143",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 69,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 29.8,
+      "uv_index": 2.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S144",
+    "city": "Jaipur",
+    "skin_type": 3,
+    "body_area": 23,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 18.1,
+      "uv_index": 0.8
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S145",
+    "city": "Hyderabad",
+    "skin_type": 4,
+    "body_area": 5,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 33.2,
+      "uv_index": 0.2
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S146",
+    "city": "Pune",
+    "skin_type": 1,
+    "body_area": 54,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.8,
+      "uv_index": 1.2
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S147",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 62,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 36.2,
+      "uv_index": 9.2
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S148",
+    "city": "Kanpur",
+    "skin_type": 1,
+    "body_area": 75,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 39.5,
+      "uv_index": 5.6
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S149",
+    "city": "Kolkata",
+    "skin_type": 4,
+    "body_area": 33,
+    "age": 70,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 35.5,
+      "uv_index": 2.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S150",
+    "city": "Chennai",
+    "skin_type": 5,
+    "body_area": 47,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 23.7,
+      "uv_index": 9.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S151",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 53,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 31.7,
+      "uv_index": 2.5
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S152",
+    "city": "Kanpur",
+    "skin_type": 5,
+    "body_area": 43,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 29.3,
+      "uv_index": 10.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S153",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 21,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 39.2,
+      "uv_index": 3.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S154",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 9,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 35.0,
+      "uv_index": 7.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S155",
+    "city": "Chennai",
+    "skin_type": 6,
+    "body_area": 73,
+    "age": 15,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 38.9,
+      "uv_index": 6.7
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S156",
+    "city": "Kolkata",
+    "skin_type": 5,
+    "body_area": 49,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.8,
+      "uv_index": 9.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S157",
+    "city": "Lucknow",
+    "skin_type": 4,
+    "body_area": 54,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 18.3,
+      "uv_index": 6.3
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S158",
+    "city": "Kolkata",
+    "skin_type": 5,
+    "body_area": 53,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 38.0,
+      "uv_index": 10.2
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S159",
+    "city": "Hyderabad",
+    "skin_type": 5,
+    "body_area": 55,
+    "age": 40,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 23.4,
+      "uv_index": 1.3
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S160",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 15,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 22.7,
+      "uv_index": 5.2
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S161",
+    "city": "New Delhi",
+    "skin_type": 3,
+    "body_area": 71,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 21.1,
+      "uv_index": 2.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S162",
+    "city": "Kolkata",
+    "skin_type": 1,
+    "body_area": 13,
+    "age": 8,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 25.8,
+      "uv_index": 2.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S163",
+    "city": "Chennai",
+    "skin_type": 1,
+    "body_area": 29,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 28.3,
+      "uv_index": 5.5
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S164",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 35,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 22.5,
+      "uv_index": 4.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S165",
+    "city": "Mumbai",
+    "skin_type": 5,
+    "body_area": 59,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 39.4,
+      "uv_index": 5.6
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S166",
+    "city": "Kanpur",
+    "skin_type": 4,
+    "body_area": 68,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 29.6,
+      "uv_index": 0.2
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S167",
+    "city": "Jaipur",
+    "skin_type": 4,
+    "body_area": 28,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 36.7,
+      "uv_index": 5.7
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S168",
+    "city": "Kolkata",
+    "skin_type": 4,
+    "body_area": 18,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 31.6,
+      "uv_index": 3.1
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S169",
+    "city": "Jaipur",
+    "skin_type": 3,
+    "body_area": 38,
+    "age": 64,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 21.5,
+      "uv_index": 0.1
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S170",
+    "city": "Lucknow",
+    "skin_type": 4,
+    "body_area": 15,
+    "age": 8,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 27.1,
+      "uv_index": 8.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S171",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 34,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 39.4,
+      "uv_index": 3.8
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S172",
+    "city": "Chennai",
+    "skin_type": 5,
+    "body_area": 37,
+    "age": 64,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 24.3,
+      "uv_index": 6.3
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S173",
+    "city": "Hyderabad",
+    "skin_type": 2,
+    "body_area": 80,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 36.5,
+      "uv_index": 3.5
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S174",
+    "city": "Lucknow",
+    "skin_type": 3,
+    "body_area": 19,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 30.9,
+      "uv_index": 4.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S175",
+    "city": "New Delhi",
+    "skin_type": 3,
+    "body_area": 45,
+    "age": 64,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 23.0,
+      "uv_index": 0.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S176",
+    "city": "New Delhi",
+    "skin_type": 5,
+    "body_area": 53,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 28.6,
+      "uv_index": 4.9
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S177",
+    "city": "Kolkata",
+    "skin_type": 4,
+    "body_area": 79,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 42.8,
+      "uv_index": 10.4
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S178",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 49,
+    "age": 40,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 37.0,
+      "uv_index": 4.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S179",
+    "city": "Pune",
+    "skin_type": 5,
+    "body_area": 7,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 28.3,
+      "uv_index": 0.1
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S180",
+    "city": "Pune",
+    "skin_type": 4,
+    "body_area": 43,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 26.3,
+      "uv_index": 1.4
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S181",
+    "city": "Kolkata",
+    "skin_type": 2,
+    "body_area": 11,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 19.4,
+      "uv_index": 2.5
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S182",
+    "city": "Pune",
+    "skin_type": 6,
+    "body_area": 11,
+    "age": 64,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 33.3,
+      "uv_index": 1.2
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S183",
+    "city": "New Delhi",
+    "skin_type": 6,
+    "body_area": 13,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 28.5,
+      "uv_index": 1.3
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S184",
+    "city": "Mumbai",
+    "skin_type": 4,
+    "body_area": 9,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 39.9,
+      "uv_index": 12.0
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S185",
+    "city": "Kolkata",
+    "skin_type": 3,
+    "body_area": 57,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 32.0,
+      "uv_index": 11.6
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S186",
+    "city": "Chennai",
+    "skin_type": 2,
+    "body_area": 39,
+    "age": 25,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 19.3,
+      "uv_index": 2.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S187",
+    "city": "Jaipur",
+    "skin_type": 4,
+    "body_area": 78,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 35.9,
+      "uv_index": 7.3
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S188",
+    "city": "Mumbai",
+    "skin_type": 3,
+    "body_area": 17,
+    "age": 8,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 33.9,
+      "uv_index": 5.3
+    },
+    "expected": {
+      "uv_level": "HIGH",
+      "protection_required": true,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S189",
+    "city": "Bengaluru",
+    "skin_type": 5,
+    "body_area": 24,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 42.1,
+      "uv_index": 2.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S190",
+    "city": "Bengaluru",
+    "skin_type": 1,
+    "body_area": 18,
+    "age": 25,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 38.0,
+      "uv_index": 1.9
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S191",
+    "city": "Lucknow",
+    "skin_type": 1,
+    "body_area": 51,
+    "age": 8,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 27.0,
+      "uv_index": 4.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S192",
+    "city": "Pune",
+    "skin_type": 3,
+    "body_area": 16,
+    "age": 25,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 23.5,
+      "uv_index": 3.3
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_PROTECTION"
+    }
+  },
+  {
+    "scenario_id": "S193",
+    "city": "Kolkata",
+    "skin_type": 4,
+    "body_area": 76,
+    "age": 15,
+    "user_query": "Is it safe to go outside now?",
+    "mock_weather": {
+      "temperature": 19.8,
+      "uv_index": 9.9
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S194",
+    "city": "Jaipur",
+    "skin_type": 6,
+    "body_area": 20,
+    "age": 25,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 22.9,
+      "uv_index": 2.0
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "LOW",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S195",
+    "city": "Kolkata",
+    "skin_type": 2,
+    "body_area": 27,
+    "age": 15,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 29.8,
+      "uv_index": 7.1
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S196",
+    "city": "Chennai",
+    "skin_type": 5,
+    "body_area": 41,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 34.0,
+      "uv_index": 0.8
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "CAUTION",
+      "hard_stop": false,
+      "overall_action": "OUTDOOR_ACTIVITY_WITH_STANDARD_PRECAUTIONS"
+    }
+  },
+  {
+    "scenario_id": "S197",
+    "city": "Hyderabad",
+    "skin_type": 6,
+    "body_area": 40,
+    "age": 15,
+    "user_query": "Can I plan outdoor activity safely today?",
+    "mock_weather": {
+      "temperature": 26.6,
+      "uv_index": 11.9
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S198",
+    "city": "Bengaluru",
+    "skin_type": 4,
+    "body_area": 18,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 21.8,
+      "uv_index": 11.0
+    },
+    "expected": {
+      "uv_level": "VERY_HIGH",
+      "protection_required": true,
+      "heat_caution": "LOW",
+      "hard_stop": true,
+      "overall_action": "MINIMIZE_DIRECT_SUN_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S199",
+    "city": "Kolkata",
+    "skin_type": 1,
+    "body_area": 66,
+    "age": 40,
+    "user_query": "How should I protect myself outdoors?",
+    "mock_weather": {
+      "temperature": 42.2,
+      "uv_index": 1.5
+    },
+    "expected": {
+      "uv_level": "LOW",
+      "protection_required": false,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  },
+  {
+    "scenario_id": "S200",
+    "city": "Pune",
+    "skin_type": 1,
+    "body_area": 13,
+    "age": 70,
+    "user_query": "Can I exercise outside today?",
+    "mock_weather": {
+      "temperature": 42.3,
+      "uv_index": 3.6
+    },
+    "expected": {
+      "uv_level": "MODERATE",
+      "protection_required": true,
+      "heat_caution": "HIGH",
+      "hard_stop": true,
+      "overall_action": "AVOID_PROLONGED_OUTDOOR_EXPOSURE"
+    }
+  }
+]

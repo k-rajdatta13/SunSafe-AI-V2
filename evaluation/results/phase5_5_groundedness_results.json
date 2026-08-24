@@ -1,0 +1,67 @@
+{
+  "phase": "5.5",
+  "mode": "DETERMINISTIC_CLAIM_LEVEL_GROUNDEDNESS",
+  "cases": 8,
+  "passed_cases": 8,
+  "all_cases_passed": true,
+  "case_results": [
+    {
+      "id": "supported_basic",
+      "passed": true,
+      "expected": "SUPPORTED",
+      "observed": "SUPPORTED",
+      "groundedness_score": 1.0
+    },
+    {
+      "id": "unsupported_claim",
+      "passed": true,
+      "expected": "UNSUPPORTED",
+      "observed": "UNSUPPORTED",
+      "groundedness_score": 0.0
+    },
+    {
+      "id": "wrong_citation",
+      "passed": true,
+      "expected": "UNVERIFIABLE",
+      "observed": "UNVERIFIABLE",
+      "groundedness_score": 0.0
+    },
+    {
+      "id": "non_authoritative",
+      "passed": true,
+      "expected": "UNVERIFIABLE",
+      "observed": "UNVERIFIABLE",
+      "groundedness_score": 0.0
+    },
+    {
+      "id": "numeric_mismatch",
+      "passed": true,
+      "expected": "UNSUPPORTED",
+      "observed": "UNSUPPORTED",
+      "groundedness_score": 0.0
+    },
+    {
+      "id": "missing_citation",
+      "passed": true,
+      "expected": "UNSUPPORTED",
+      "observed": "UNSUPPORTED",
+      "groundedness_score": 0.0
+    },
+    {
+      "id": "multi_evidence",
+      "passed": true,
+      "expected": "SUPPORTED",
+      "observed": "SUPPORTED",
+      "groundedness_score": 1.0
+    },
+    {
+      "id": "negation_mismatch",
+      "passed": true,
+      "expected": "UNSUPPORTED",
+      "observed": "UNSUPPORTED",
+      "groundedness_score": 0.0
+    }
+  ],
+  "semantic_llm_judge_used": false,
+  "interpretation": "This evaluator verifies citation linkage, authoritative source, numeric support and conservative lexical entailment for explicit atomic claims. It does not claim semantic or clinical truth."
+}

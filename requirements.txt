@@ -1,0 +1,15 @@
+# SunSafe AI V2 — production/runtime dependencies
+streamlit>=1.40,<2
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+pydantic>=2.7,<3
+python-dotenv>=1.0,<2
+requests>=2.31,<3
+beautifulsoup4>=4.12,<5
+pypdf>=5,<7
+numpy>=1.26,<3
+scikit-learn>=1.4,<2
+langgraph>=0.2,<2
+langchain-core>=0.3,<2
+langchain-google-genai>=2,<4
+sentence-transformers>=3.0,<6

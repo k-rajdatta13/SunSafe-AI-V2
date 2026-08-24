@@ -1,0 +1,12 @@
+[
+  {"query": "When should I use sun protection for UV index 6?", "expected_topics": ["uv_threshold", "uv_bands", "protection", "sun_safety"]},
+  {"query": "What does UV index 8 mean?", "expected_topics": ["uv_bands", "uv_threshold"]},
+  {"query": "When is UV strongest during the day?", "expected_topics": ["planning", "uv_index"]},
+  {"query": "How can I protect my skin outside?", "expected_topics": ["protection", "sun_protection", "sun_safety"]},
+  {"query": "Does UV exposure relate to vitamin D?", "expected_topics": ["vitamin_d", "uv_health"]},
+  {"query": "What sun safety advice is useful for outdoor activity?", "expected_topics": ["sun_safety", "sun_protection"]},
+  {"query": "How do I stay safe in hot weather outdoors?", "expected_topics": ["heat_safety"]},
+  {"query": "What are symptoms of overheating?", "expected_topics": ["heat_safety", "heat_illness"]},
+  {"query": "Who may need extra UV caution?", "expected_topics": ["risk_groups", "uv_health"]},
+  {"query": "Should sunscreen extend the amount of time I stay in the sun?", "expected_topics": ["protection", "sunscreen", "sun_safety"]}
+]

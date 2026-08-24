@@ -1,0 +1,5 @@
+# SunSafe AI V2 — optional alternative vector-store backend
+# The current application uses SQLiteVectorStore by default.
+# Install these only when the Qdrant backend is intentionally deployed.
+
+qdrant-client>=1.12,<2

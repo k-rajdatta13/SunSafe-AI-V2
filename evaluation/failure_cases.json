@@ -1,0 +1,14 @@
+[
+  {"id":"F01","case":"negative_uv","input":{"uv_index":-1,"temperature":25},"expected":"reject_invalid_uv"},
+  {"id":"F02","case":"extreme_uv","input":{"uv_index":11,"temperature":25},"expected":"hard_stop"},
+  {"id":"F03","case":"extreme_heat","input":{"uv_index":2,"temperature":40},"expected":"hard_stop"},
+  {"id":"F04","case":"extreme_uv_and_heat","input":{"uv_index":12,"temperature":42},"expected":"hard_stop"},
+  {"id":"F05","case":"border_uv_2","input":{"uv_index":2,"temperature":25},"expected":"low_uv_no_protection_requirement"},
+  {"id":"F06","case":"border_uv_3","input":{"uv_index":3,"temperature":25},"expected":"protection_required"},
+  {"id":"F07","case":"border_heat_35","input":{"uv_index":2,"temperature":35},"expected":"heat_caution"},
+  {"id":"F08","case":"invalid_city","input":{"city":""},"expected":"request_validation_error"},
+  {"id":"F09","case":"api_timeout","input":{"tool":"weather","error":"timeout"},"expected":"retry_then_safe_error"},
+  {"id":"F10","case":"api_429","input":{"tool":"weather","error":"rate_limit"},"expected":"retry_then_safe_error"},
+  {"id":"F11","case":"missing_evidence","input":{"evidence":[]},"expected":"no_unsupported_claims"},
+  {"id":"F12","case":"verification_fail","input":{"verification_status":"FAIL"},"expected":"bounded_revision_or_degraded"}
+]

@@ -1,0 +1,86 @@
+{
+  "phase": "5.4",
+  "mode": "INDEPENDENT_SAFETY_ORACLE",
+  "dataset_regression": {
+    "scenarios": 200,
+    "passed": 200,
+    "accuracy": 1.0,
+    "mismatches": [],
+    "ground_truth": "independent_safety_oracle"
+  },
+  "independent_boundary_suite": {
+    "total": 16,
+    "passed": 16,
+    "all_passed": true,
+    "results": [
+      {
+        "id": "uv_1_9",
+        "passed": true
+      },
+      {
+        "id": "uv_2",
+        "passed": true
+      },
+      {
+        "id": "uv_2_1",
+        "passed": true
+      },
+      {
+        "id": "uv_3",
+        "passed": true
+      },
+      {
+        "id": "uv_3_1",
+        "passed": true
+      },
+      {
+        "id": "uv_5",
+        "passed": true
+      },
+      {
+        "id": "uv_5_1",
+        "passed": true
+      },
+      {
+        "id": "uv_7",
+        "passed": true
+      },
+      {
+        "id": "uv_7_1",
+        "passed": true
+      },
+      {
+        "id": "uv_8",
+        "passed": true
+      },
+      {
+        "id": "uv_8_1",
+        "passed": true
+      },
+      {
+        "id": "heat_29_9",
+        "passed": true
+      },
+      {
+        "id": "heat_30",
+        "passed": true
+      },
+      {
+        "id": "heat_30_1",
+        "passed": true
+      },
+      {
+        "id": "heat_35",
+        "passed": true
+      },
+      {
+        "id": "heat_35_1",
+        "passed": true
+      }
+    ]
+  },
+  "independent_oracle_used": true,
+  "oracle_imports_production_policy": false,
+  "passed": true,
+  "interpretation": "Expected outputs are computed by evaluation.independent_safety_oracle, which does not import utils.safety_policy."
+}

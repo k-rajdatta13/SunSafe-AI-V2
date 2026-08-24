@@ -1,0 +1,12 @@
+[
+  {
+    "source": "https://www.cdc.gov/skin-cancer/sun-safety/index.html",
+    "fetch_url": "https://www.cdc.gov/skin-cancer/sun-safety/index.html",
+    "error": "403 Client Error: Forbidden for url: https://www.cdc.gov/skin-cancer/sun-safety/index.html"
+  },
+  {
+    "source": "https://www.cdc.gov/radiation-health/features/uv-radiation.html",
+    "fetch_url": "https://www.cdc.gov/radiation-health/features/uv-radiation.html",
+    "error": "403 Client Error: Forbidden for url: https://www.cdc.gov/radiation-health/features/uv-radiation.html"
+  }
+]

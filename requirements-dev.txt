@@ -1,0 +1,5 @@
+# SunSafe AI V2 — development/test dependencies
+# Install after requirements.txt:
+#   python -m pip install -r requirements-dev.txt
+
+pytest>=8,<10
